@@ -1,23 +1,27 @@
-import React, { use } from "react";
-import { navLinks } from "../../constants/index.js";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
+import React from 'react';
+import { navLinks } from '../../constants/index.js';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
 const Navbar = (props) => {
   useGSAP(() => {
     const navTween = gsap.timeline({
       scrollTrigger: {
-        trigger: "nav",
-        start: "bottom top",
+        trigger: 'nav',
+        start: 'bottom top',
       },
     });
 
-    navTween.fromto("nav", { backgroundColor: "transparent" }, { 
-        backgroundColor: "#00000050", 
-        backgroundFilter: 'blur(10px)', 
-        duration: 1, 
-        ease: 'power1.inOut'
-    });
+    navTween.fromTo(
+      'nav',
+      { backgroundColor: 'transparent', backdropFilter: 'blur(0px)' },
+      {
+        backgroundColor: '#00000050',
+        backdropFilter: 'blur(10px)',
+        duration: 1,
+        ease: 'power1.inOut',
+      },
+    );
   });
 
   return (
